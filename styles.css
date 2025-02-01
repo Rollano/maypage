@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easter Egg</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    #easter-egg {
+      display: none;
+      font-size: 24px;
+      color: #28a745;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>Hint: Try the famous "Konami Code"! (↑ ↑ ↓ ↓ ← → ← → B A)</p>
+  <div id="easter-egg">🎉 Congratulations! You've discovered the Easter egg! 🎉</div>
+
+  <script>
+    // Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let currentIndex = 0;
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === konamiCode[currentIndex]) {
+        currentIndex++;
+        if (currentIndex === konamiCode.length) {
+          document.getElementById('easter-egg').style.display = 'block';
+          currentIndex = 0; // Reset the sequence
+        }
+      } else {
+        currentIndex = 0; // Reset on incorrect key
+      }
+    });
+  </script>
+</body>
+</html>
